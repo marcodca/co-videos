@@ -1,15 +1,7 @@
 const path = require("path");
-const webpack = require("webpack");
-const dotenv = require("dotenv");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = () => {
-  const env = dotenv.config().parsed;
-
-  const envKeys = Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {});
-
   return {
     entry: ["@babel/polyfill", "./src/index.js"],
     output: {
@@ -25,6 +17,6 @@ module.exports = () => {
     devServer: {
       contentBase: path.join(__dirname, "public"),
     },
-    plugins: [new webpack.DefinePlugin(envKeys)],
+    plugins: [new Dotenv()],
   };
 };
