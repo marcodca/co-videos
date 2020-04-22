@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import media from "./mediaUtil";
 
 export default createGlobalStyle`
     html,
@@ -17,4 +18,15 @@ export default createGlobalStyle`
         --color-gray-light: #D3D3D3;
         --color-gray-dark: #2F4F4F;
     }
-`
+    body {
+        ${media.md`font-size: 1.2em`};
+        ${media.lg`font-size: 1.4em`};
+        transition: font-size 0.3s;
+        font-family: 'Merriweather', serif;
+        color: var(--color-gray-dark);
+        h1,h2,h3 {
+        font-family: 'Archivo Narrow', sans-serif;
+        color: black;
+        }
+    }
+`;
