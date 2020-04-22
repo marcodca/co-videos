@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --mode=development",
-    "build": "webpack --mode=production",
+    "build": "node ./scripts/create-env.js && webpack --mode=production",
     "dev": "webpack-dev-server",
     "test": "jest"
   },
@@ -38,7 +38,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
     "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
