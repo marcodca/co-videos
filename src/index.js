@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const template = React.createElement("h2", null, "Just testing");
+const App = () => <h1>Testing</h1>;
 
-ReactDOM.render(template, document.querySelector("#root"));
+ReactDOM.render(<App />, document.querySelector("#root"));
