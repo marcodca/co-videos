@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const MoviesList = () => {
+export const  NotFound = () => {
     return (
         <div>
-            MoviesList!
+            404, Not found!
         </div>
     )
 }
