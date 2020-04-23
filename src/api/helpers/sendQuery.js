@@ -10,11 +10,11 @@ export default async (query) => {
 
     const { data, status, statusText } = response;
 
-    if (status !== 200) return [statusText, null];
+    if (status !== 200) return { error: statusText };
 
-    return [null, data];
+    return data;
   } catch (error) {
     console.error(error);
-    return [error, null];
+    return { error };
   }
 };
