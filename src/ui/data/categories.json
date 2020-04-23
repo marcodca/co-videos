@@ -1,0 +1,168 @@
+{
+  "genres": [
+    {
+      "type": "genre",
+      "payload": { "id": 28 },
+      "name": "action"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 12 },
+      "name": "adventure"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 16 },
+      "name": "animation"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 35 },
+      "name": "comedy"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 80 },
+      "name": "crime"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 99 },
+      "name": "documentary"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 18 },
+      "name": "drama"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 10751 },
+      "name": "family"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 14 },
+      "name": "fantasy"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 36 },
+      "name": "history"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 27 },
+      "name": "horror"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 10402 },
+      "name": "music"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 9648 },
+      "name": "mystery"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 10749 },
+      "name": "romance"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 878 },
+      "name": "science-fiction"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 10770 },
+      "name": "tv-movie"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 53 },
+      "name": "thriller"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 10752 },
+      "name": "war"
+    },
+    {
+      "type": "genre",
+      "payload": { "id": 37 },
+      "name": "western"
+    }
+  ],
+  "duration": [
+    {
+      "name": "very-short",
+      "type": "duration",
+      "payload": { "max": 75 }
+    },
+    {
+      "name": "short",
+      "type": "duration",
+      "payload": { "max": 100 }
+    },
+    {
+      "name": "medium",
+      "type": "duration",
+      "payload": { "max": 145 }
+    },
+    {
+      "name": "long",
+      "type": "duration",
+      "payload": { "max": 190 }
+    },
+    {
+      "name": "huge",
+      "type": "duration",
+      "payload": { "max": 99999 }
+    }
+  ],
+  "decades": [
+    {
+      "name": "1950",
+      "type": "decade",
+      "payload": { "min": "1950", "max": 1959 }
+    },
+    {
+      "name": "1960",
+      "type": "decade",
+      "payload": { "min": 1960, "max": 1969 }
+    },
+    {
+      "name": "1970",
+      "type": "decade",
+      "payload": { "min": 1970, "max": 1979 }
+    },
+    {
+      "name": "1980",
+      "type": "decade",
+      "payload": { "min": 1980, "max": 1989 }
+    },
+    {
+      "name": "1990",
+      "type": "decade",
+      "payload": { "min": 1990, "max": 1999 }
+    },
+    {
+      "name": "2000",
+      "type": "decade",
+      "payload": { "min": 2000, "max": 2009 }
+    },
+    {
+      "name": "2010",
+      "type": "decade",
+      "payload": { "min": 2010, "max": 2019 }
+    },
+    {
+      "name": "2020",
+      "type": "decade",
+      "payload": { "min": 2020, "max": 2029 }
+    }
+  ]
+}

@@ -15,6 +15,6 @@ export default async (query) => {
     return data;
   } catch (error) {
     console.error(error);
-    return { error };
+    return { error: error.message };
   }
 };

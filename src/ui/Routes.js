@@ -10,7 +10,11 @@ const Routes = () => {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/list" component={MoviesList} />
+          <Route
+            exact
+            path="/category/:category/:name"
+            component={MoviesList}
+          />
           <Route exact path="/detail" component={MovieDetails} />
           <Route exact path="/want-to-watch" component={WantToWatch} />
           <Route component={NotFound} />
