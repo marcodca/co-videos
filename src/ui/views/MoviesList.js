@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import getMoviesByGenre from "../../api/getMoviesByGenre";
 import getMoviesByDecade from "../../api/getMoviesByDecade";
 import getMoviesByDuration from "../../api/getMoviesByDuration";
@@ -15,12 +15,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         status: "loading",
-      };
-
-    case "set-idle":
-      return {
-        ...state,
-        status: "idle",
       };
     case "set-error":
       return {
@@ -74,6 +68,7 @@ export const MoviesList = (props) => {
   const fetchMovies = (actionType) => {
     dispatch({ type: "set-loading" });
     let getMovies;
+    //We check the category in the url to determine which fetching function we are using
     switch (props.match.params.category) {
       case "genre": {
         getMovies = getMoviesByGenre;
@@ -103,7 +98,7 @@ export const MoviesList = (props) => {
       payload,
       page: moviesData.response.page,
       sortBy: moviesData.sortBy,
-    }).then((response) => {
+    }).then( response => {
       if (response.error) {
         dispatch({ type: "set-error", payload: response.error });
         return;
