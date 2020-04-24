@@ -1,8 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const gePersistedData = () => {
+  try {
+    const data = localStorage.getItem("wantToWatchData");
+    return data;
+  } catch (e) {
+    return undefined;
+  }
+};
+
+const initialState = gePersistedData() ? JSON.parse(gePersistedData()) : [];
+
 export const slice = createSlice({
   name: "wantToWatch",
-  initialState: [],
+  initialState,
   reducers: {
     addMovie: (state, action) => {
       if (state.find((movie) => movie.id === action.payload.id)) return state;
