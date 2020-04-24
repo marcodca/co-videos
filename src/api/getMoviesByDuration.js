@@ -4,6 +4,6 @@ import sendQuery from "./helpers/sendQuery";
 
 export default ({ payload, page = 1, sortBy = "popularity.desc" }) => {
   return sendQuery(
-    `sort_by=${sortBy}&page=${page}&with_runtime.lte=${payload.max}`
+    `sort_by=${sortBy}&page=${pageNr}&with_runtime.lte=${payload.max}`
   );
 };
