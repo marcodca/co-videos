@@ -1,7 +1,11 @@
 import axios from "axios";
 
-export default async (query) => {
-  const url = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US%&include_adult=false&include_video=false&${query}`;
+export default async (query, search) => {
+  const url = `https://api.themoviedb.org/3/${
+    search ? "search" : "discover"
+  }/movie?api_key=${
+    process.env.TMDB_API_KEY
+  }&language=en-US%&include_adult=false&include_video=false&${query}`;
 
   try {
     const response = await axios({
