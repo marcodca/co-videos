@@ -98,7 +98,7 @@ export const MoviesList = (props) => {
       payload,
       page: moviesData.response.page,
       sortBy: moviesData.sortBy,
-    }).then( response => {
+    }).then((response) => {
       if (response.error) {
         dispatch({ type: "set-error", payload: response.error });
         return;
@@ -132,18 +132,20 @@ export const MoviesList = (props) => {
     </select>
   );
 
-  const { status, response } = moviesData;
-  return status === "loading" ? (
-    <p>Loading...</p>
-  ) : (
+  const {
+    status,
+    response: { error, results },
+  } = moviesData;
+  return (
     <div>
       Movieees
       <SelectSortBy />
-      {response.error && <p>Error: {response.error}</p>}
+      {error && <p>Error: {error}</p>}
       Movies yes!
-      {response.results.map((movie, i) => (
+      {results.map((movie, i) => (
         <p key={i}>{movie.title}</p>
       ))}
+      {status === "loading" && <p>Loading...</p>}
       <button
         onClick={() => {
           dispatch({ type: "increase-page" });
