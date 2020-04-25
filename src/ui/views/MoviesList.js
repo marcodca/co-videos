@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from "react";
+import { Link } from "react-router-dom";
 import getMoviesByGenre from "../../api/getMoviesByGenre";
 import getMoviesByDecade from "../../api/getMoviesByDecade";
 import getMoviesByDuration from "../../api/getMoviesByDuration";
@@ -143,7 +144,9 @@ export const MoviesList = (props) => {
       {error && <p>Error: {error}</p>}
       Movies yes!
       {results.map((movie, i) => (
-        <p key={i}>{movie.title}</p>
+        <Link to={`/movie/${movie.id}`} key={movie.id}>
+          {movie.title}
+        </Link>
       ))}
       {status === "loading" && <p>Loading...</p>}
       <button
