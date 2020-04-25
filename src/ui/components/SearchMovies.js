@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import getMoviesBySearch from "../../api/getMoviesBySearch";
 import styled from "styled-components";
 import Spinner from "./Spinner";
+import MovieCard from "./MovieCard";
 
 const initialState = {
   status: "idle",
@@ -17,7 +18,7 @@ const SearchMovies = () => {
   const inputRef = useRef();
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    setInputValue(e.target.value || "");
   };
 
   useEffect(() => {
@@ -77,9 +78,19 @@ const SearchMovies = () => {
       {status === "loading" ? (
         <Spinner />
       ) : !results.length ? (
-        inputValue.length > 3 && <p>No results</p>
+        inputValue.length > 2 && <p>No results</p>
       ) : (
-        results.map((movie) => <p key={movie.id}>{movie.title}</p>)
+        <ul>
+          {results.map(({ id, title, poster_path, release_date }) => (
+            <MovieCard
+              key={id}
+              id={id}
+              title={title}
+              picturePath={poster_path}
+              releaseDate={release_date}
+            />
+          ))}
+        </ul>
       )}
     </Container>
   );
@@ -93,8 +104,9 @@ const Container = styled.div`
     margin: 0.2em auto;
     span {
       position: absolute;
-      right: 4px;
-      top: 0;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
       color: red;
       cursor: pointer;
     }
@@ -109,6 +121,14 @@ const Container = styled.div`
     &::placeholder {
       text-align: center;
     }
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 `;
 

@@ -45,6 +45,7 @@ const BrowseMovies = () => {
 };
 
 const Container = styled.div`
+  margin: 0 auto;
   > select {
     display: block;
     margin: 5px auto;
@@ -77,6 +78,7 @@ const CategoryCard = styled.li`
   text-transform: capitalize;
   font-family: 'Archivo Narrow', sans-serif;
   box-shadow: 1px 3px 6px 3px rgb(0 0 0 /0.3);
+  transition: all 0.1s;
   &:hover {
     box-shadow: 1px 2px 3px 2px rgb(0 0 0 /0.4);
     transform: scale(1.05);

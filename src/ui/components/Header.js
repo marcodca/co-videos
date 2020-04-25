@@ -10,12 +10,12 @@ export const Header = () => {
 
   return (
     <Container>
-      <Link to="/">
+      <Link to="/" title="CO-VIDEOS">
         <h2>
           CO-VID<span>EOS</span>
         </h2>
       </Link>
-      <Link to="/want-to-watch">
+      <Link to="/want-to-watch" title="Want to watch list">
         <img src={eyeIcon} width={35} />
 
         <span>{wantToWatchData.length} movies</span>
@@ -43,7 +43,7 @@ const Container = styled.header`
     padding: 0.5em;
     text-align: center;
     &:last-child {
-      margin-right: 0.3em;
+      margin-right: 0.5em;
       font-size: 0.8em;
       background: rgb(0 0 0 / 0.05);
       border-radius: 10px;

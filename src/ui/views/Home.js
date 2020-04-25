@@ -5,7 +5,7 @@ import BrowseMovies from "../components/BrowseMovies";
 import noiseImg from "../../assets/noise.gif";
 
 export const Home = () => {
-  const [mode, setMode] = useState("browse");
+  const [mode, setMode] = useState("search");
 
   const handleModelButtonClick = (e) => void setMode(e.target.value);
 
@@ -15,7 +15,7 @@ export const Home = () => {
         <button
           onClick={handleModelButtonClick}
           style={{
-            background: mode === val && "grey",
+            background: mode !== val && "grey",
           }}
           value={val}
         >
