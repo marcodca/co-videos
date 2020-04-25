@@ -28,5 +28,9 @@ export default createGlobalStyle`
         font-family: 'Archivo Narrow', sans-serif;
         color: black;
         }
+        a, a:visited {
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
     }
 `;
