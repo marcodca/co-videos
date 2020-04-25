@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectWantToWatch } from "../../store/reducers/wantToWatchSlice";
+import eyeIcon from "../../assets/eye-open.svg";
 
 export const Header = () => {
   const wantToWatchData = useSelector(selectWantToWatch);
@@ -10,10 +11,14 @@ export const Header = () => {
   return (
     <Container>
       <Link to="/">
-        <h2>CO-VIDEOS</h2>
+        <h2>
+          CO-VID<span>EOS</span>
+        </h2>
       </Link>
       <Link to="/want-to-watch">
-        Want to watch list: <br /> <span>{wantToWatchData.length}</span> movies
+        <img src={eyeIcon} width={35} />
+
+        <span>{wantToWatchData.length} movies</span>
       </Link>
     </Container>
   );
@@ -30,18 +35,24 @@ const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  h2 > span {
+    color: var(--color-gray);
+  }
   > a {
     padding: 0.5em;
     text-align: center;
     &:last-child {
-      padding: 0.2em;
-      margin-right: 0.3em;  
+      margin-right: 0.3em;
       font-size: 0.8em;
       background: rgb(0 0 0 / 0.05);
       border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       > span {
-        font-size: 1.5em;
         font-weight: bold;
+        color: #000;
       }
     }
   }

@@ -1,42 +1,72 @@
 import React, { useState } from "react";
-import categories from "../data/categories.json";
-import { Link } from "react-router-dom";
-import SearchMovies from '../components/SearchMovies';
+import SearchMovies from "../components/SearchMovies";
+import styled from "styled-components";
+import BrowseMovies from "../components/BrowseMovies";
+import noiseImg from "../../assets/noise.gif";
 
 export const Home = () => {
-  const [selectedCategories, setSelectedCategories] = useState("genres");
+  const [mode, setMode] = useState("browse");
 
-  const handleSelectChange = (e) => void setSelectedCategories(e.target.value);
+  const handleModelButtonClick = (e) => void setMode(e.target.value);
+
+  const ModeButtons = () => (
+    <ModeButtonsContainer>
+      {["browse", "search"].map((val, i) => (
+        <button
+          onClick={handleModelButtonClick}
+          style={{
+            background: mode === val && "grey",
+          }}
+          value={val}
+        >
+          {val}
+        </button>
+      ))}
+    </ModeButtonsContainer>
+  );
 
   return (
-    <div>
-      <h1>Home content</h1>
-      <SearchMovies/>
-      Browse movies by:{" "}
-      <select onChange={handleSelectChange}>
-        {Object.keys(categories).map((category, i) => (
-          <option value={category} key={i}>
-            {category}
-          </option>
-        ))}
-      </select>
-      {categories[selectedCategories].map((cat, i) => {
-        const { type, name, payload } = cat;
-
-        return (
-          <Link
-            key={i}
-            to={{
-              pathname: `/category/${type}/${name}`,
-              state: {
-                payload,
-              },
-            }}
-          >
-            <p> {name}</p>
-          </Link>
-        );
-      })}
-    </div>
+    <Container>
+      <h1>
+        CO-VID<span>EOS</span>
+      </h1>
+      <h2>Movies against the pandemic</h2>
+      <sub>
+        Are the lockdown days starting to feel like too much to handle? Can't
+        you find a good way to spend the quarantine? Worry no more, co-videos
+        offers you a wide cinematographic archive so you can finally keep track
+        of all those movies you always wanted to watch, but never had the time.
+      </sub>
+      <ModeButtons />
+      {mode === "browse" ? <BrowseMovies /> : <SearchMovies />}
+    </Container>
   );
 };
+
+const Container = styled.div`
+  text-align: center;
+  > h1 {
+    font-size: 2.8em;
+    margin-bottom: 0;
+    background: url(${noiseImg});
+    background-size: cover;
+    color: #fff;
+    display: inline-block;
+    padding: 0.6em;
+    border-radius: 25px;
+    box-shadow: 0 0 8px 5px rgb(0 0 0 / 0.2);
+    > span {
+      color: var(--color-gray-light);
+    }
+  }
+  > h2 {
+    margin-top: 0;
+  }
+`;
+
+const ModeButtonsContainer = styled.div`
+  margin: 1em 0;
+  button:active {
+    background: #fff;
+  }
+`;

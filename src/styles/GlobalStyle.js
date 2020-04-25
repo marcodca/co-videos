@@ -32,5 +32,20 @@ export default createGlobalStyle`
             color: var(--color-secondary);
             text-decoration: none;
         }
+        button {
+            font-family: 'Archivo Narrow', sans-serif;
+            font-weight: bold;
+            appearance: none;
+            text-transform: uppercase;
+            padding: .5em 1em;
+            border-radius: 5px;
+            background: var(--color-gray-light);
+            cursor: pointer;
+        }
+        select, option{
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            border-radius: 5px;
+        }
     }
 `;
