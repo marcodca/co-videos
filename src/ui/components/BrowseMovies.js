@@ -60,7 +60,7 @@ const Container = styled.div`
 `;
 
 const CategoryCard = styled.li`
-  font-size: 1.2em;
+  font-size: 1.4em;
   min-width: 300px;
   height: 4em;
   margin: 1em;
@@ -75,6 +75,7 @@ const CategoryCard = styled.li`
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
+  font-family: 'Archivo Narrow', sans-serif;
   box-shadow: 1px 3px 6px 3px rgb(0 0 0 /0.3);
   &:hover {
     box-shadow: 1px 2px 3px 2px rgb(0 0 0 /0.4);

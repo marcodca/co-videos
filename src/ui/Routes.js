@@ -34,7 +34,7 @@ const Main = styled.main`
   width: 75%;
   min-width: 320px;
   max-width: 900px;
-  min-height: calc(100vh - 3.5em);
+  min-height: 100vh;
 `;
 
 export default Routes;

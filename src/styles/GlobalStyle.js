@@ -46,6 +46,7 @@ export default createGlobalStyle`
             font-size: 1.5rem;
             text-transform: capitalize;
             border-radius: 5px;
+            box-shadow: inset 1px 1px 3px 2px rgb(0 0 0 / 0.2);
         }
     }
 `;
