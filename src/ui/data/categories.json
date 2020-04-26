@@ -101,13 +101,13 @@
       "name": "very-short",
       "type": "duration",
       "sub": "Less than 75 minutes",
-      "payload": { "max": 75 }
+      "payload": { "min": 1, "max": 75 }
     },
     {
       "name": "short",
       "type": "duration",
       "sub": "Less than 100 minutes",
-      "payload": { "max": 100 }
+      "payload": { "min": 76, "max": 100 }
     },
     {
       "name": "medium",
@@ -119,13 +119,13 @@
       "name": "long",
       "type": "duration",
       "sub": "Less than 190 minutes",
-      "payload": { "max": 190 }
+      "payload": { "min": 146, "max": 190 }
     },
     {
       "name": "huge",
       "type": "duration",
       "sub": "More than 190 minutes",
-      "payload": { "max": 99999 }
+      "payload": { "min": 191, "max": 99999 }
     }
   ],
   "decades": [
