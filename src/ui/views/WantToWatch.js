@@ -14,8 +14,6 @@ export const WantToWatch = () => {
   const wantToWatchData = useSelector(selectWantToWatch);
   const dispatch = useDispatch();
 
-  console.log(wantToWatchData);
-
   return (
     <Container>
       <h2>Want to watch list</h2>
@@ -77,7 +75,7 @@ export const WantToWatch = () => {
 };
 
 const Container = styled.div`
-  padding-top: 2em;
+  padding: 2em 0;
   h2 {
     text-align: center;
   }

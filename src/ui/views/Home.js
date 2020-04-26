@@ -34,7 +34,8 @@ export const Home = () => {
       <h2>Movies against the pandemic</h2>
       <sub>
         Are the lockdown days starting to feel like too much to handle? Can't
-        you find a good way to spend the quarantine? Worry no more, co-videos
+        you find a good way to spend the quarantine?  Worry no more,{" "}
+        <b>CO-VIDEOS </b>
         offers you a wide cinematographic archive so you can finally keep track
         of all those movies you always wanted to watch, but never had the time.
       </sub>
