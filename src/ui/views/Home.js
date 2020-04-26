@@ -5,7 +5,7 @@ import BrowseMovies from "../components/BrowseMovies";
 import noiseImg from "../../assets/noise.gif";
 
 export const Home = () => {
-  const [mode, setMode] = useState("search");
+  const [mode, setMode] = useState("browse");
 
   const handleModelButtonClick = (e) => void setMode(e.target.value);
 
@@ -13,6 +13,7 @@ export const Home = () => {
     <ModeButtonsContainer>
       {["browse", "search"].map((val, i) => (
         <button
+          key={i}
           onClick={handleModelButtonClick}
           style={{
             background: mode !== val && "grey",
@@ -49,7 +50,8 @@ const Container = styled.div`
     font-size: 2.8em;
     margin-bottom: 0;
     background: url(${noiseImg});
-    background-size: cover;
+    background-size: contain;
+    background-attachment: fixed;
     color: #fff;
     display: inline-block;
     padding: 0.6em;

@@ -4,7 +4,7 @@ import virus from "../../assets/virus.svg";
 
 const Spinner = () => {
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <Img width={50} src={virus} alt="spinner" />
     </div>
   );
@@ -15,6 +15,7 @@ const rotate = keyframes`
 `;
 
 const Img = styled.img`
+  padding: 1em;
   margin: 0 auto;
   animation: 2s ${rotate} ease-out infinite;
 `;

@@ -33,9 +33,10 @@ const Container = styled.footer`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 2.7em;
+  height: 5em;
   font-size: 0.8em;
   text-align: center;
+  border-top: 5px solid var(--color-gray-dark);
   span:last-child {
     display: flex;
     align-items: center;

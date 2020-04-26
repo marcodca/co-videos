@@ -62,9 +62,9 @@ const Container = styled.div`
 
 const CategoryCard = styled.li`
   font-size: 1.4em;
-  min-width: 300px;
+  min-width: 270px;
   height: 4em;
-  margin: 1em;
+  margin: 1em ;
   border-radius: 5px;
   background: linear-gradient(
     0deg,

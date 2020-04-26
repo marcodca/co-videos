@@ -48,5 +48,10 @@ export default createGlobalStyle`
             border-radius: 5px;
             box-shadow: inset 1px 1px 3px 2px rgb(0 0 0 / 0.2);
         }
+        .error {
+            text-align: center;
+            padding: 2em;
+            color: red;
+        }
     }
 `;

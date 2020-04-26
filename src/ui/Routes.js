@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Footer, Header } from "./components";
-import { Home, NotFound, MoviesList, MovieDetails, WantToWatch } from "./views";
+import { Home, NotFound, MoviesCategory, MovieDetails, WantToWatch } from "./views";
 import styled from "styled-components";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -16,7 +16,7 @@ const Routes = () => {
             <Route
               exact
               path="/category/:category/:name"
-              component={MoviesList}
+              component={MoviesCategory}
             />
             <Route exact path="/movie/:id" component={MovieDetails} />
             <Route exact path="/want-to-watch" component={WantToWatch} />

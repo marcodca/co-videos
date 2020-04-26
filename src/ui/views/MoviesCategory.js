@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from "react";
-import { Link } from "react-router-dom";
+import styled from "styled-components";
 import getMoviesByGenre from "../../api/getMoviesByGenre";
 import getMoviesByDecade from "../../api/getMoviesByDecade";
 import getMoviesByDuration from "../../api/getMoviesByDuration";
+import MovieCard from "../components/MovieCard";
+import Spinner from "../components/Spinner";
 
 const initialState = {
   status: "idle",
@@ -62,15 +64,17 @@ const selectSortByOptions = [
   { value: "revenue", name: "Revenue" },
 ];
 
-export const MoviesList = (props) => {
+export const MoviesCategory = ({ match, location }) => {
   const [moviesData, dispatch] = useReducer(reducer, initialState);
+
+  const { category, name } = match.params;
 
   //Shared functionality between effects
   const fetchMovies = (actionType) => {
     dispatch({ type: "set-loading" });
     let getMovies;
     //We check the category in the url to determine which fetching function we are using
-    switch (props.match.params.category) {
+    switch (category) {
       case "genre": {
         getMovies = getMoviesByGenre;
         break;
@@ -89,11 +93,11 @@ export const MoviesList = (props) => {
       }
     }
 
-    if (!props.location.state) {
+    if (!location.state) {
       dispatch({ type: "set-error", payload: "Category not recognized" });
       return;
     }
-    const { payload } = props.location.state;
+    const { payload } = location.state;
 
     getMovies({
       payload,
@@ -116,21 +120,28 @@ export const MoviesList = (props) => {
     fetchMovies("set-different-sort-by-response");
   }, [moviesData.sortBy]);
 
-  console.log("props", props);
+  // console.log("props", props);
   console.log("state", moviesData);
 
   const handleSelectSortByChange = (e) =>
     void dispatch({ type: "change-sort-by", payload: e.target.value });
 
   const SelectSortBy = () => (
-    <select onChange={handleSelectSortByChange} value={moviesData.sortBy}>
-      {selectSortByOptions.map(({ name, value }, i) => (
-        <React.Fragment key={i}>
-          <option value={`${value}.desc`}>🔽 {name} </option>
-          <option value={`${value}.asc`}>🔼 {name} </option>
-        </React.Fragment>
-      ))}
-    </select>
+    <SortByContainer>
+      <label htmlFor="sort-by">Sort by:</label>
+      <select
+        onChange={handleSelectSortByChange}
+        value={moviesData.sortBy}
+        id="sort-by"
+      >
+        {selectSortByOptions.map(({ name, value }, i) => (
+          <React.Fragment key={i}>
+            <option value={`${value}.desc`}>🔽 {name} </option>
+            <option value={`${value}.asc`}>🔼 {name} </option>
+          </React.Fragment>
+        ))}
+      </select>
+    </SortByContainer>
   );
 
   const {
@@ -138,17 +149,22 @@ export const MoviesList = (props) => {
     response: { error, results },
   } = moviesData;
   return (
-    <div>
-      Movieees
+    <Container>
+      <h2>{name} movies</h2>
       <SelectSortBy />
-      {error && <p>Error: {error}</p>}
-      Movies yes!
-      {results.map((movie, i) => (
-        <Link to={`/movie/${movie.id}`} key={movie.id}>
-          {movie.title}
-        </Link>
-      ))}
-      {status === "loading" && <p>Loading...</p>}
+      {error && <p className="error" >Error: {error}</p>}
+      <ul>
+        {results.map(({ id, title, poster_path, release_date }) => (
+          <MovieCard
+            key={id}
+            id={id}
+            title={title}
+            picturePath={poster_path}
+            releaseDate={release_date}
+          />
+        ))}
+      </ul>
+      {status === "loading" && <Spinner />}
       <button
         onClick={() => {
           dispatch({ type: "increase-page" });
@@ -156,6 +172,37 @@ export const MoviesList = (props) => {
       >
         More page
       </button>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  text-align: center;
+  > h2 {
+    margin-top: 4em;
+    text-align: center;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  > ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+`;
+
+const SortByContainer = styled.div`
+  text-align: center;
+  > select {
+    margin-left: 8px;
+    height: 1.5em;
+    option:nth-child(even) {
+      background: coral;
+    }
+  }
+`;

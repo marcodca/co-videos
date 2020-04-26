@@ -53,6 +53,7 @@ const Container = styled.li`
     > img {
       max-height: 400px;
       border-radius: 5px;
+      margin: auto 0;
     }
   }
 `;

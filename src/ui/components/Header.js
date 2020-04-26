@@ -26,7 +26,7 @@ export const Header = () => {
 
 const Container = styled.header`
   height: 3.5em;
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -40,10 +40,10 @@ const Container = styled.header`
     color: var(--color-gray);
   }
   > a {
-    padding: 0.5em;
+    padding: .5em;
     text-align: center;
     &:last-child {
-      margin-right: 0.5em;
+      margin-right: 2em;
       font-size: 0.8em;
       background: rgb(0 0 0 / 0.05);
       border-radius: 10px;
