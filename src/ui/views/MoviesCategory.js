@@ -5,6 +5,7 @@ import getMoviesByDecade from "../../api/getMoviesByDecade";
 import getMoviesByDuration from "../../api/getMoviesByDuration";
 import MovieCard from "../components/MovieCard";
 import Spinner from "../components/Spinner";
+import FetchMore from "../components/FetchMore";
 
 const initialState = {
   status: "idle",
@@ -71,6 +72,7 @@ export const MoviesCategory = ({ match, location }) => {
 
   //Shared functionality between effects
   const fetchMovies = (actionType) => {
+    if (moviesData.status === "loading") return;
     dispatch({ type: "set-loading" });
     let getMovies;
     //We check the category in the url to determine which fetching function we are using
@@ -113,15 +115,13 @@ export const MoviesCategory = ({ match, location }) => {
   };
 
   useEffect(() => {
+    if (moviesData.response.page === 1) return;
     fetchMovies("set-same-sort-by-response");
   }, [moviesData.response.page]);
 
   useEffect(() => {
     fetchMovies("set-different-sort-by-response");
   }, [moviesData.sortBy]);
-
-  // console.log("props", props);
-  console.log("state", moviesData);
 
   const handleSelectSortByChange = (e) =>
     void dispatch({ type: "change-sort-by", payload: e.target.value });
@@ -152,7 +152,7 @@ export const MoviesCategory = ({ match, location }) => {
     <Container>
       <h2>{name} movies</h2>
       <SelectSortBy />
-      {error && <p className="error" >Error: {error}</p>}
+      {error && <p className="error">Error: {error}</p>}
       <ul>
         {results.map(({ id, title, poster_path, release_date }) => (
           <MovieCard
@@ -165,18 +165,18 @@ export const MoviesCategory = ({ match, location }) => {
         ))}
       </ul>
       {status === "loading" && <Spinner />}
-      <button
-        onClick={() => {
+
+      <FetchMore
+        cb={() => {
           dispatch({ type: "increase-page" });
         }}
-      >
-        More page
-      </button>
+      />
     </Container>
   );
 };
 
 const Container = styled.div`
+  position: relative;
   text-align: center;
   > h2 {
     margin-top: 4em;
