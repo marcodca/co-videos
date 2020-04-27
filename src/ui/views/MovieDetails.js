@@ -11,6 +11,7 @@ import styled from "styled-components";
 import eyeOpen from "../../assets/eye-open.svg";
 import eyeClose from "../../assets/eye-close.svg";
 import Spinner from "../components/Spinner";
+import PropTypes from "prop-types";
 
 export const MovieDetails = ({ match }) => {
   const [movieData, setMovieData] = useState({
@@ -164,3 +165,5 @@ const Hero = styled.div`
     );
   }
 `;
+
+MovieDetails.propTypes = { match: PropTypes.object.isRequired };

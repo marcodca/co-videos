@@ -8,6 +8,7 @@ import {
 import MovieCard from "../components/MovieCard";
 import Spinner from "../components/Spinner";
 import FetchMore from "../components/FetchMore";
+import PropTypes from "prop-types";
 
 const initialState = {
   status: "idle",
@@ -208,3 +209,8 @@ const SortByContainer = styled.div`
     }
   }
 `;
+
+MoviesCategory.propTypes = {
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+};
