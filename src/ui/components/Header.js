@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectWantToWatch } from "../../store/reducers/wantToWatchSlice";
 import eyeIcon from "../../assets/eye-open.svg";
 
-export const Header = () => {
+const Header = () => {
   const wantToWatchData = useSelector(selectWantToWatch);
 
   return (
@@ -40,7 +40,7 @@ const Container = styled.header`
     color: var(--color-gray);
   }
   > a {
-    padding: .5em;
+    padding: 0.5em;
     text-align: center;
     &:last-child {
       margin-right: 2em;
@@ -58,3 +58,5 @@ const Container = styled.header`
     }
   }
 `;
+
+export default Header;

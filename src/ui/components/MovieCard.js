@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import virusImg from "../../assets/virus.svg";
+import PropTypes from "prop-types";
 
 const MovieCard = ({ title, picturePath = virus, id, releaseDate = "" }) => {
   const pictureUrl = picturePath
@@ -57,5 +58,12 @@ const Container = styled.li`
     }
   }
 `;
+
+MovieCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  picturePath: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  releaseDate: PropTypes.string,
+};
 
 export default MovieCard;

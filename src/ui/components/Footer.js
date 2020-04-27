@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../../assets/logo.png";
-import { withRouter } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export const Footer = withRouter(({ location }) => {
+const Footer = () => {
   //Don't display the footer in the MoviesCategory view, because of the infinite scrolling.
-  if (location.pathname.includes("category")) return null;
+  const { pathname } = useLocation();
+  if (pathname.includes("category")) return null;
 
   return (
     <Container>
@@ -30,7 +31,7 @@ export const Footer = withRouter(({ location }) => {
       </span>
     </Container>
   );
-});
+};
 
 const Container = styled.footer`
   background: var(--color-gray-light);
@@ -49,3 +50,5 @@ const Container = styled.footer`
     }
   }
 `;
+
+export default Footer;

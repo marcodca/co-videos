@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const FetchMore = ({ cb }) => {
   const observeRef = useRef();
@@ -18,7 +19,7 @@ const FetchMore = ({ cb }) => {
     let observer = new IntersectionObserver(fn);
     observer.observe(observeRef.current);
     const timeOut = setTimeout(() => {
-        isReadyRef.current = true;
+      isReadyRef.current = true;
     }, 1000);
     return () => {
       clearTimeout(timeOut);
@@ -35,5 +36,7 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
 `;
+
+FetchMore.propTypes = { cb: PropTypes.func.isRequired };
 
 export default FetchMore;
