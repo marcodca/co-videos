@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import getMoviesBySearch from "../../api/getMoviesBySearch";
+import { getMoviesBySearch } from "../../api";
 import styled from "styled-components";
 import Spinner from "./Spinner";
 import MovieCard from "./MovieCard";

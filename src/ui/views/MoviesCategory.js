@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from "react";
 import styled from "styled-components";
-import getMoviesByGenre from "../../api/getMoviesByGenre";
-import getMoviesByDecade from "../../api/getMoviesByDecade";
-import getMoviesByDuration from "../../api/getMoviesByDuration";
+import {
+  getMoviesByGenre,
+  getMoviesByDecade,
+  getMoviesByDuration,
+} from "../../api";
 import MovieCard from "../components/MovieCard";
 import Spinner from "../components/Spinner";
 import FetchMore from "../components/FetchMore";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getMovieDetails from "../../api/getMovieDetails";
+import { getMovieDetails } from "../../api";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addMovie,
