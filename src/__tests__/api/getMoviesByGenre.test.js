@@ -21,7 +21,7 @@ describe("getMoviesByGenre", () => {
     expect(sendQuery).toHaveBeenCalledTimes(1);
     expect(sendQuery).toHaveBeenCalledWith(resp, "discover");
   });
-  it("use the default parameter for sortBy", () => {
+  it("use the default parameter popularity.desc for sortBy", () => {
     sendQuery.mockImplementation((a) => a);
     const resp = getMoviesByGenre({
       payload: { id: 3 },
@@ -33,4 +33,4 @@ describe("getMoviesByGenre", () => {
     expect(sendQuery).toHaveBeenCalledTimes(1);
     expect(sendQuery).toHaveBeenCalledWith(resp, "discover");
   });
-});
+}); 
