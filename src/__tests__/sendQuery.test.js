@@ -1,4 +1,4 @@
-import sendQuery from "../../api/helpers/sendQuery";
+import sendQuery from "../api/helpers/sendQuery";
 import axios from "axios";
 
 //mocks
