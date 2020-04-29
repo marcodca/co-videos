@@ -120,7 +120,6 @@ export const MoviesCategory = ({ match, location }) => {
   useEffect(() => {
     if (moviesData.response.page === 1) return;
     fetchMovies("set-same-sort-by-response");
-    return () => (subscribed = false);
   }, [moviesData.response.page]);
 
   useEffect(() => {
