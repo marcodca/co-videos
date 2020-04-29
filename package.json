@@ -14,7 +14,7 @@
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "keywords": [
     "pandemic",
