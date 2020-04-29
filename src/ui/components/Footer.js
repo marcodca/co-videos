@@ -39,7 +39,7 @@ const Container = styled.footer`
   justify-content: space-around;
   align-items: center;
   height: 5em;
-  font-size: 0.8em;
+  font-size: 0.5em;
   text-align: center;
   border-top: 5px solid var(--color-gray-dark);
   span:last-child {

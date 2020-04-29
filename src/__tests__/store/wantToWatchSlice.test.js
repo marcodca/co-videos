@@ -4,7 +4,7 @@ import wantToWatchReducer, {
   markMovieAsWatched,
   markMovieAsUnwatched,
   clearList,
-} from "../store/reducers/wantToWatchSlice";
+} from "../../store/wantToWatchSlice";
 
 const initialState = [
   { id: 1, tile: "The good the bad and the ugly", watched: false },

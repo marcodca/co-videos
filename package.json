@@ -6,6 +6,9 @@
     "url": "https://github.com/marcodca/co-videos",
     "type": "git"
   },
+  "bugs": {
+    "url": "https://github.com/marcodca/co-videos/issues"
+  },
   "main": "index.js",
   "scripts": {
     "start": "webpack --mode=development",

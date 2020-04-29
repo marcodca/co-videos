@@ -1,7 +1,7 @@
-import { getMoviesByGenre } from "../api";
-import sendQuery from "../api/helpers/sendQuery";
+import { getMoviesByGenre } from "../../api";
+import sendQuery from "../../api/helpers/sendQuery";
 
-jest.mock("../api/helpers/sendQuery");
+jest.mock("../../api/helpers/sendQuery");
 
 beforeEach(jest.clearAllMocks);
 

@@ -5,7 +5,7 @@ import {
   addMovie,
   removeMovie,
   selectWantToWatch,
-} from "../../store/reducers/wantToWatchSlice";
+} from "../../store/wantToWatchSlice";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import eyeOpen from "../../assets/eye-open.svg";
