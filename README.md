@@ -19,8 +19,6 @@ cd project-name
 npm install
 ```
 
-Installs the necessary dependencies to run the app
-
 3. **Start developing**
 
 ```sh
@@ -56,27 +54,24 @@ The app gives you the chance of finding movies in two different ways: browsing t
 
 ## Available scripts
 
-`````sh
+```sh
 npm run dev
-``
+```
 
 Runs the app in the development mode. Open http://localhost:8080 to view it in the browser.
 
-
-````sh
+```sh
 npm build
-``
+```
 
 Builds the app for production to the public folder.
 
-````sh
+```sh
 npm run test
-``
+```
 
 Run all the tests for the project.
-
 
 ## Acknowledgments
 
 This project was made using React, Babel, Webpack, Redux (with the Redux-toolkit) and styled-components. Tests done with jest and react-testing-library. Movies information provided by [The movie DB](https://www.themoviedb.org/).
-`````
