@@ -11,7 +11,7 @@ const BrowseMovies = () => {
   return (
     <Container>
       Browse movies by:
-      <select onChange={handleSelectChange}>
+      <select onChange={handleSelectChange} data-testid="browse-select">
         {Object.keys(categories).map((category, i) => (
           <option value={category} key={i}>
             {category}

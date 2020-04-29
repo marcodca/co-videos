@@ -17,7 +17,7 @@ export default async (query, type = "movie") => {
 
     return data;
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return { error: error.message };
   }
 };

@@ -8,6 +8,7 @@ import App from "../App.js";
 import { act } from "react-dom/test-utils";
 import { getMoviesByGenre } from "../api/getMoviesByGenre";
 
+
 jest.mock("../api/getMoviesByGenre");
 
 export function renderWithRedux(

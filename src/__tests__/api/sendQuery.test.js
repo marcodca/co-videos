@@ -3,7 +3,6 @@ import axios from "axios";
 
 //mocks
 jest.mock("axios");
-console.error = jest.fn();
 
 beforeEach(jest.clearAllMocks);
 
@@ -62,11 +61,9 @@ describe("sendQuery", () => {
       throw new Error("network error");
     });
     const response = await sendQuery("query");
-    expect.assertions(4);
+    expect.assertions(2);
 
     expect(axios).toHaveBeenCalledTimes(1);
-    expect(console.error).toHaveBeenCalledTimes(1);
-    expect(console.error).toHaveBeenCalledWith(Error("network error"));
     expect(response).toMatchObject({ error: "network error" });
   });
 });

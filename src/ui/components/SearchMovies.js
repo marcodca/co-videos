@@ -26,6 +26,7 @@ const SearchMovies = () => {
       setMoviesData(initialState);
       return;
     }
+    
 
     //debounce
     const id = setTimeout(() => {
@@ -56,6 +57,7 @@ const SearchMovies = () => {
       Search movies:
       <div>
         <input
+          data-testid="search-movie-input"
           ref={inputRef}
           type="text"
           value={inputValue}
@@ -80,7 +82,7 @@ const SearchMovies = () => {
       ) : !results.length ? (
         inputValue.length > 2 && <p>No results</p>
       ) : (
-        <ul>
+        <ul data-testid="search-results-movie-ul">
           {results.map(({ id, title, poster_path, release_date }) => (
             <MovieCard
               key={id}
